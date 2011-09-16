@@ -1,6 +1,6 @@
 { 
 	"name" : "workory-mob", 
-	"version" : "1.0", 
+	"version" : "v1.0.1", 
 	"description" : "Workory mobile version", 
 	"author" : "Scott Raio", 
 	"main" : "./server.js", 
