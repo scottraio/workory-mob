@@ -1,12 +1,12 @@
-{ "name" : "workory-mob"
-, "version" : "1.0"
-, "description" : "Workory's mobile version"
-, "author" : "Scott Raio"
-, "main" : "./server.js"
-, "dependencies" :
-  {
-    "express" : ">= 2.4.6"
-  , "stitch"
-  , "oauth"
-  }
+{ 
+	"name" : "workory-mob", 
+	"version" : "1.0", 
+	"description" : "Workory's mobile version", 
+	"author" : "Scott Raio", 
+	"main" : "./server.js", 
+	"dependencies" : {
+    	"express" : ">= 2.4.6", 
+		"stitch", 
+		"oauth"
+	}
 }
