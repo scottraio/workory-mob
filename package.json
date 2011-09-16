@@ -4,9 +4,9 @@
 	"description" : "Workory mobile version", 
 	"author" : "Scott Raio", 
 	"main" : "./server.js", 
-	"dependencies" : {
-    	"express" : ">= 2.4.6", 
+	"dependencies" : [
+    	"express", 
 		"stitch", 
 		"oauth"
-	}
+	]
 }
