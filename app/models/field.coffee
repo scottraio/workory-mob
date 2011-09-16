@@ -1,0 +1,1 @@
+class exports.Field extends Backbone.Model

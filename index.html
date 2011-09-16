@@ -1,0 +1,248 @@
+<!doctype html>
+<!-- Conditional comment for mobile ie7 http://blogs.msdn.com/b/iemobile/ -->
+<!-- Appcache Facts http://appcachefacts.info/ -->
+<!--[if IEMobile 7 ]>    <html class="no-js iem7" manifest="default.appcache?v=1"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" > <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Workory</title>
+
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile viewport optimization http://goo.gl/b9SaQ -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+	<link rel="apple-touch-startup-image" href="images/splash.png">
+
+	<!-- Home screen icon  Mathias Bynens http://goo.gl/6nVq0 -->
+	<!-- For iPhone 4 with high-resolution Retina display: -->
+	<link rel="apple-touch-icon" sizes="114x114" href="images/icon@2x.png">
+	<!-- For first-generation iPad: -->
+	<link rel="apple-touch-icon" sizes="72x72" href="images/icon.png">
+	<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<!-- For nokia devices: -->
+	<link rel="shortcut icon" href="images/apple-touch-icon.png">
+
+
+	<!--iOS web app, deletable if not needed -->
+	<!--<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-startup-image" href="img/l/splash.png">-->
+
+	<!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+	<meta http-equiv="cleartype" content="on">
+
+	<link rel="stylesheet" href="https://app.workory.com/stylesheets/common/ui.less.css" />
+
+	<link rel="stylesheet" href="/stylesheets/style.less.css" />
+	<link rel="stylesheet" href="/stylesheets/tabbar.less.css" />
+
+	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="javascripts/modernizr-custom.js"></script>
+	
+	<script src="/javascripts/iscroll.js" type="application/x-javascript" charset="utf-8"></script>
+	
+	<script>
+		function loaded() {
+			setHeight()
+		}
+		
+		function setHeight() {
+			var headerH = 	document.getElementById('header').offsetHeight,
+				footerH = 	document.getElementById('tabbar').offsetHeight,
+				wrapperH = window.innerHeight - headerH - footerH;
+			document.getElementById('wrapper').style.height = wrapperH + 'px';
+		}
+		
+		document.addEventListener('touchmove', function(e){ e.preventDefault(); });
+		window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', setHeight, false);
+		document.addEventListener('DOMContentLoaded', loaded);
+		
+	</script>
+</head>
+
+<body>
+	<div id="page">
+		<div id="header">
+			<ul>
+				<li class="left"></li>
+				<li class="middle"><h1>Forms</h1></li>
+				<li class="right"></li>
+			</ul>
+		</div>
+	
+		<div id="wrapper">
+		    <div id="scroller">
+				<div id="content">
+					<!-- content goes here -->
+				</div>
+		    </div>
+		</div>
+		
+		<script>
+			myScroll = new iScroll('scroller');
+		</script>
+	
+		<div id="tabbar">
+			<ul>
+				<li>
+					<a href="#home" data-tabbar-item="home" class="enabled">
+						<strong>Home</strong>
+					</a>
+				</li>
+				<li>
+					<a href="#forms" data-tabbar-item="forms">
+						<strong>Forms</strong>
+					</a>
+				</li>
+				<li>
+					<a href="#reports" data-tabbar-item="reports">
+						<strong>Reports</strong>
+					</a>
+				</li>
+				<li>
+					<a href="#settings" data-tabbar-item="settings">
+						<strong>Settings</strong>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<script id="buttonleft" type="text/html">
+		<a href="javascript:history.go(-1); return false;" class="back">
+		<div class="body">
+			<div><span></span></div>
+			<p>{{ title }}</p>
+		</div>
+		</a>
+	</script>
+	
+	<script id="navlist" type="text/html">
+		<ul data-role="listview">
+			{{#items}}
+			<li>
+				<a href="{{url}}">
+					<img class="ui-li-icon ui-li-thumb icon16 i16_{{icon_id}}" src="/images/blank_icon.png" />
+					{{name}}
+				</a>
+			</li>
+			{{/items}}
+		</ul>
+	</script>
+	
+	<script id="reportshow" type="text/html">
+		<ul data-role="listview">
+			{{#items}}
+				<li>
+					<a href="#/books/{{ book_id }}/records/{{ id }}">
+						<img class="ui-li-icon ui-li-thumb icon16 i16_{{icon_id}}" src="/images/blank_icon.png" />
+						{{name}}
+					</a>
+				</li>
+			{{/items}}
+		</ul>
+	</script>
+	
+	<script id="recordshow" type="text/html">
+		<div class="record">
+			<ul>
+				{{#values}}
+				<li>
+					<b>{{field_name}}</b>
+					{{value}}
+				</li>
+				{{/values}}
+			</ul>
+		</div>
+	</script>
+	
+	<script id="formshow" type="text/html">
+		<fieldset>
+			<ul>
+				{{#items}}
+					<li>
+						<b>{{ name }}</b>
+						{{#textbox}} {{>textbox_field}} {{/textbox}}
+						{{#email}} {{>email_field}} {{/email}}
+						{{#phone}} {{>phone_field}} {{/phone}}
+						{{#select}} {{>select_field}} {{/select}}
+						{{#paragraph}} {{>paragraph_field}} {{/paragraph}}
+					</li>
+				{{/items}}
+			</ul>
+		</fieldset>
+		
+		<a class="button green">Create</a>
+	</script>
+	
+	<script id="textbox_field" class="partial" type="text/html">
+		<input type="text" name="doc[{{id}}]" value="{{value}}" />
+	</script>
+	
+	<script id="email_field" class="partial" type="text/html">
+		<input type="email" name="doc[{{id}}]" value="{{value}}" />
+	</script>
+	
+	<script id="phone_field" class="partial" type="text/html">
+		<input type="tel" name="doc[{{id}}]" value="{{value}}" />
+	</script>
+	
+	<script id="paragraph_field" class="partial" type="text/html">
+		<textarea name="doc[{{id}}]">{{value}}</textarea>
+	</script>
+	
+	<script id="select_field" class="partial" type="text/html">
+		<select name="doc[{{id}}]">
+			<option value="">choose one --</option>
+			<option value="a">a</option>
+		</select>
+	</script>
+	
+	<!-- JavaScript at the bottom for fast page loading -->
+	<script src="/javascripts/zepto.min.js" type="application/x-javascript" charset="utf-8"></script>
+	<script src="/javascripts/touch.js" type="application/x-javascript" charset="utf-8"></script>
+	
+	<script src="/javascripts/underscore.js" type="application/x-javascript" charset="utf-8"></script>
+	<script src="/javascripts/backbone.js" type="application/x-javascript" charset="utf-8"></script>
+	<script src="/javascripts/icanhaz.js" type="application/x-javascript" charset="utf-8"></script>
+	
+	
+	<script src="/application.js"></script>
+
+	<script>	
+		$(document).ready(function(){
+			require("app")
+			
+			$.getJSON("https://app.workory.com/.json?callback=?", function(data) {
+				App.start(data)
+			}) 
+		})
+	</script>
+
+	<!-- scripts concatenated and minified via ant build script
+	<script src="javascripts/vendor/mylibs/helper.js"></script>
+	end concatenated and minified scripts-->
+
+	<script>
+	  // iPhone Scale Bug Fix, read this when using http://www.blog.highub.com/mobile-2/a-fix-for-iphone-viewport-scale-bug/
+	  //MBP.scaleFix();
+
+	  // Media Queries Polyfill https://github.com/shichuan/mobile-html5-boilerplate/wiki/Media-Queries-Polyfill
+	  //yepnope({
+	  //  test : Modernizr.mq('(min-width)'),
+	  //  nope : ['javascripts/vendor/libs/respond.min.js']
+	  //});
+	</script>
+
+
+</body>
+</html>
