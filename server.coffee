@@ -1,14 +1,10 @@
 # Module dependencies
 fs 			= require('fs')
-stitch 	= require('stitch')
 express = require('express')
 OAuth 	= require('oauth').OAuth
-
+gzip 		= require('connect-gzip');
 app 		= module.exports = express.createServer()
 
-# Package configuration
-package = stitch.createPackage
-	paths: [__dirname + '/app/']
 
 # Configuration
 app.configure () ->
@@ -20,6 +16,8 @@ app.configure () ->
 	app.use express.cookieParser()
 	app.use express.session({secret: "skjghskdjfhbqigohqdiouk"})
 	
+	app.use gzip.gzip()
+	
 	app.use app.router
 	
 app.configure 'development', () ->
@@ -30,11 +28,11 @@ app.configure 'production', () ->
 	
 # OAuth
 provider_url = 'https://app.workory.com'
-callback_url = 'http://local.dev:3000/oauth/callback'
+callback_url = 'http://10.0.1.33:3000/oauth/callback'
 
 client = 
-	key:						"120094574673767",
-	secret:					"b54dc82476af2814e620b86776c42c0e",
+	key:						"746737120094567",
+	secret:					"e620b86776c42c0eb54dc82476af2814",
 	site: 					provider_url,
 	authorize_url: 	"#{provider_url}/oauth2/authorize",
 	token_url: 			"#{provider_url}/oauth2/token"
@@ -67,6 +65,5 @@ app.get '/oauth/callback', (req, res) ->
 # Only listen on $ node app.js
 if not module.parent
 	app.listen 3000
-	app.get '/application.js', package.createServer()
 	console.log "Express server listening on port %d", app.address().port
  

@@ -1,0 +1,9 @@
+dependencies:
+  - zepto.js
+  - underscore.js
+  - backbone.js
+  - icanhaz.js
+  - iscroll.js
+
+buildPath: "public/"
+minify: false

@@ -1,77 +1,27 @@
 <!doctype html>
-<!-- Conditional comment for mobile ie7 http://blogs.msdn.com/b/iemobile/ -->
-<!-- Appcache Facts http://appcachefacts.info/ -->
-<!--[if IEMobile 7 ]>    <html class="no-js iem7" manifest="default.appcache?v=1"> <![endif]-->
-<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" > <!--<![endif]-->
-
+<html>
 <head>
 	<meta charset="utf-8">
-
 	<title>Workory</title>
-
-	<meta name="description" content="">
-	<meta name="author" content="">
-
-	<!-- Mobile viewport optimization http://goo.gl/b9SaQ -->
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320"/>
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
-	<link rel="apple-touch-startup-image" href="images/splash.png">
-
-	<!-- Home screen icon  Mathias Bynens http://goo.gl/6nVq0 -->
-	<!-- For iPhone 4 with high-resolution Retina display: -->
-	<link rel="apple-touch-icon" sizes="114x114" href="images/icon@2x.png">
-	<!-- For first-generation iPad: -->
-	<link rel="apple-touch-icon" sizes="72x72" href="images/icon.png">
-	<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-	<!-- For nokia devices: -->
-	<link rel="shortcut icon" href="images/apple-touch-icon.png">
-
-
-	<!--iOS web app, deletable if not needed -->
-	<!--<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<link rel="apple-touch-startup-image" href="img/l/splash.png">-->
-
-	<!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
 	<meta http-equiv="cleartype" content="on">
+	<link rel="apple-touch-startup-image" href="https://app.workory.com/images/splash.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="https://app.workory.com/images/iphone@114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="https://app.workory.com/images/ipad@72.png">
+	<link rel="apple-touch-icon" href="https://app.workory.com/images/iphone@57.png.png">
+	<link rel="shortcut icon" href="https://app.workory.com/favicon.png">
 
-	<link rel="stylesheet" href="https://app.workory.com/stylesheets/common/ui.less.css" />
-
-	<link rel="stylesheet" href="/stylesheets/style.less.css" />
-	<link rel="stylesheet" href="/stylesheets/tabbar.less.css" />
-
-	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="javascripts/modernizr-custom.js"></script>
-	
-	<script src="/javascripts/iscroll.js" type="application/x-javascript" charset="utf-8"></script>
-	
-	<script>
-		function loaded() {
-			setHeight()
-		}
-		
-		function setHeight() {
-			var headerH = 	document.getElementById('header').offsetHeight,
-				footerH = 	document.getElementById('tabbar').offsetHeight,
-				wrapperH = window.innerHeight - headerH - footerH;
-			document.getElementById('wrapper').style.height = wrapperH + 'px';
-		}
-		
-		document.addEventListener('touchmove', function(e){ e.preventDefault(); });
-		window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', setHeight, false);
-		document.addEventListener('DOMContentLoaded', loaded);
-		
-	</script>
+	<link rel="stylesheet" href="https://app.workory.com/assets/mobile.css" />
+	<link rel="stylesheet" href="web/css/main.css" />
 </head>
 
 <body>
 	<div id="page">
-		<div id="header">
+		<div id="header" style="display:none">
 			<ul>
 				<li class="left"></li>
 				<li class="middle"><h1>Forms</h1></li>
@@ -87,9 +37,6 @@
 		    </div>
 		</div>
 		
-		<script>
-			myScroll = new iScroll('scroller');
-		</script>
 	
 		<div id="tabbar">
 			<ul>
@@ -115,10 +62,13 @@
 				</li>
 			</ul>
 		</div>
+	
 	</div>
 	
+	
+	
 	<script id="buttonleft" type="text/html">
-		<a href="javascript:history.go(-1); return false;" class="back">
+		<a href="javascript:history.go(-1);" class="back">
 		<div class="body">
 			<div><span></span></div>
 			<p>{{ title }}</p>
@@ -130,10 +80,11 @@
 		<ul data-role="listview">
 			{{#items}}
 			<li>
-				<a href="{{url}}">
-					<img class="ui-li-icon ui-li-thumb icon16 i16_{{icon_id}}" src="/images/blank_icon.png" />
-					{{name}}
-				</a>
+				<img class="ui-li-icon ui-li-thumb icon32 i32_{{icon_id}}" src="/images/blank_icon.png" />
+				<div class="meta">
+					<a href="{{url}}">{{name}}</a>
+					<div class="timestamp">created at {{created_at}}</div>
+				</div>
 			</li>
 			{{/items}}
 		</ul>
@@ -143,10 +94,11 @@
 		<ul data-role="listview">
 			{{#items}}
 				<li>
-					<a href="#/books/{{ book_id }}/records/{{ id }}">
-						<img class="ui-li-icon ui-li-thumb icon16 i16_{{icon_id}}" src="/images/blank_icon.png" />
-						{{name}}
-					</a>
+					<img class="ui-li-icon ui-li-thumb icon32 i32_{{icon_id}}" src="/images/blank_icon.png" />
+					<div class="meta">
+						<a href="#/books/{{ book_id }}/records/{{ id }}">{{name}}</a>
+						<div class="timestamp">created at {{created_at}}</div>
+					</div>
 				</li>
 			{{/items}}
 		</ul>
@@ -207,42 +159,32 @@
 		</select>
 	</script>
 	
-	<!-- JavaScript at the bottom for fast page loading -->
-	<script src="/javascripts/zepto.min.js" type="application/x-javascript" charset="utf-8"></script>
-	<script src="/javascripts/touch.js" type="application/x-javascript" charset="utf-8"></script>
-	
-	<script src="/javascripts/underscore.js" type="application/x-javascript" charset="utf-8"></script>
-	<script src="/javascripts/backbone.js" type="application/x-javascript" charset="utf-8"></script>
-	<script src="/javascripts/icanhaz.js" type="application/x-javascript" charset="utf-8"></script>
-	
-	
-	<script src="/application.js"></script>
 
-	<script>	
-		$(document).ready(function(){
-			require("app")
-			
-			$.getJSON("https://app.workory.com/.json?callback=?", function(data) {
-				App.start(data)
-			}) 
-		})
-	</script>
-
-	<!-- scripts concatenated and minified via ant build script
-	<script src="javascripts/vendor/mylibs/helper.js"></script>
-	end concatenated and minified scripts-->
+	<script src="web/js/app.js" type="text/javascript" charset="utf-8"></script>
 
 	<script>
-	  // iPhone Scale Bug Fix, read this when using http://www.blog.highub.com/mobile-2/a-fix-for-iphone-viewport-scale-bug/
-	  //MBP.scaleFix();
-
-	  // Media Queries Polyfill https://github.com/shichuan/mobile-html5-boilerplate/wiki/Media-Queries-Polyfill
-	  //yepnope({
-	  //  test : Modernizr.mq('(min-width)'),
-	  //  nope : ['javascripts/vendor/libs/respond.min.js']
-	  //});
+		function loaded() {
+			setTimeout(function(){
+			    // Hide the address bar!
+			    window.scrollTo(0, 1);
+				setHeight();
+				myScroll = new iScroll('scroller');
+			}, 0);
+		}
+		
+		function setHeight() {
+			var headerH = 	document.getElementById('header').offsetHeight,
+				footerH = 	document.getElementById('tabbar').offsetHeight,
+				wrapperH = window.innerHeight - headerH - footerH;
+			document.getElementById('wrapper').style.height = wrapperH + 'px';
+		}
+		
+		document.addEventListener('touchmove', function(e){ e.preventDefault(); });
+		window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', setHeight, false);
+		document.addEventListener('DOMContentLoaded', loaded);
+		
+		require("main")
 	</script>
-
 
 </body>
 </html>

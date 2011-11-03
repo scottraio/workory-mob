@@ -1,0 +1,315 @@
+// HTML5 ✰ Boilerplate
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video
+	margin 0
+	padding 0
+	border 0
+	font-size 100%
+	font  inherit 
+	vertical-align baseline
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+	display block
+
+blockquote, q
+	quotes none
+	
+blockquote before, blockquote after, q before, q after 
+	content ""
+	content none
+	
+table 
+	border-collapse collapse
+	border-spacing 0
+	
+input, select 
+	vertical-align middle
+
+body
+	font 13px/1.231 sans-serif
+	*font-size small 
+	-webkit-user-select none 
+	-webkit-text-size-adjust none
+	
+select, input, textarea, button 
+	font 99% sans-serif
+	
+pre, code, kbd, samp 
+	font-family monospace, sans-serif
+	
+html 
+	-webkit-text-size-adjust 100%
+	-ms-text-size-adjust 100%
+	
+a hover, a active
+	outline none
+	
+ul, ol 
+	margin 0
+	padding 0
+	list-style-type none
+	width 100%
+	
+ol 
+	list-style-type decimal
+
+small 
+	font-size 85%
+	
+  -moz-selection 
+	background #FF5E99 
+	color #fff 
+	text-shadow none
+	
+  selection
+	background #FF5E99
+	color #fff 
+	text-shadow none
+	
+button 
+	width auto
+	overflow visible
+
+body, select, input, textarea
+	color #444
+
+h1, h2, h3, h4, h5, h6 
+	font-weight bold
+	
+a, a active, a visited 
+	text-decoration none
+	color #607890
+	
+a hover
+	color #036
+	
+.ellipsis
+	text-overflow ellipsis
+  overflow hidden
+  white-space nowrap
+
+.clearfix before, .clearfix after 
+	content "\0020" 
+	display block 
+	height 0 
+	overflow hidden
+	
+.clearfix after 
+	clear both
+	
+.clearfix 
+	zoom 1
+
+//@media only screen and (min-width  800px)
+
+//@media only screen and (-webkit-min-device-pixel-ratio  1.5), only screen and (-o-min-device-pixel-ratio  3/2), only screen and (min-device-pixel-ratio  1.5)
+
+#wrapper
+	height 200px
+	position relative
+	z-index 1
+	width 100%
+	background #fff
+	overflow hidden
+	//background url("/images/background.png") repeat
+ 
+#scroller 
+	-webkit-tap-highlight-color rgba(0,0,0,0)
+	float left
+	width 100%
+	padding 0
+
+div#header
+	background #222 url("/images/header.png") repeat
+	width 100%
+	height 50px
+	position relative
+	-webkit-transition top 0.3s linear
+	
+div#header.hide {
+	top -50px
+}
+
+div#header ul li
+	float left
+
+div#header ul li.left, div#header ul li.right
+	width 20%
+	padding 0.475em 0
+
+div#header li.left a.back div.body
+	position relative
+	margin 6px 0 0 12px
+	height 26px
+	width 50px
+	border 1px solid rgba(0,0,0, 0.4)
+	-webkit-border-radius 5px
+	background -webkit-gradient(linear, left top, left bottom, from(#000), to(#000), color-stop(.01, #000), color-stop(.02, #555), color-stop(.03, #2d2d2d), color-stop(.5, #151515), color-stop(.51, #000))
+	-webkit-box-shadow 0 1px 0 rgba(255,255,255, 0.25), inset 0 1px 1px rgba(0,0,0, 0.2)
+
+div#header li.left a.back div.body div
+	position absolute
+	z-index 1
+	top 4px
+	left -7px
+	-webkit-transform rotate(51deg)
+
+div#header li.left a.back div.body span
+	-webkit-transform skew(15deg)
+	-webkit-border-radius 1px
+	-webkit-box-shadow 0 1px 0 rgba(255,255,255, 0.25)
+	background -webkit-gradient(linear, left top, right bottom, from(#000), to(#000), color-stop(.01, #000), color-stop(.02, #555), color-stop(.03, #2d2d2d), color-stop(.5, #151515), color-stop(.51, #000))
+	display block
+	width 15px
+	height 16px
+	border 1px solid rgba(0,0,0, 0.4)
+	border-right 0
+	border-top 0
+
+div#header li.left a.back div.body p
+	position absolute 
+	z-index 2 
+	top 5px 
+	left 5px 
+	margin 0 
+	padding 0 
+	font-weight bold 
+	color #fff 
+	font-size 12px
+	text-shadow 0 -1px 0 rgba(0,0,0, 0.4)
+
+div#header ul li.middle
+	text-align center
+	margin 0 5%
+	width 50%
+	display block
+	position relative
+
+div#header ul li.middle h1
+	font-size 1.6em
+	line-height 2.5em
+	height 50px
+	color #f0f0f0
+	font-weight normal
+	text-shadow 0 -1px 0 rgba(0,0,0,0.5)
+	text-overflow ellipsis
+	overflow hidden
+	white-space nowrap
+
+ul[data-role="listview"] li
+	width 100%
+	padding 0.8em 0
+	border-bottom 1px solid #eee
+	z-index 99
+	position relative
+	text-overflow ellipsis
+	overflow hidden
+	white-space nowrap
+	background url("/images/arrow.png") no-repeat right
+
+ul[data-role="listview"] li.pressed
+	//gradientV(#ccc, #f0f0f0)
+	background-color #36C
+	
+ul[data-role="listview"] li.pressed a
+	color #fff
+	
+ul[data-role="listview"] li.pressed .timestamp
+	color #eee
+
+ul[data-role="listview"] li img 
+	margin 0 0.6em
+	float left
+	position relative
+	top 0.3em
+	
+ul[data-role="listview"] li .meta
+	margin 0 0 0 0.8em
+	
+ul[data-role="listview"] li a
+	font-size 1.325em
+	color #222
+	width 100%
+	display inline-block
+	margin 0 0 0.2em 0
+	
+ul[data-role="listview"] li .timestamp 
+	font-size 0.85em
+	color #aaa
+
+ul[data-role="dataview"] li 
+	width 100%
+	padding 1.2em 0
+	border-bottom 1px solid #bbb
+	background-color #fff
+	text-indent 0 0.6em 
+
+div.search 
+	background -webkit-gradient(linear, left top, left bottom, from(#000), to(#000), color-stop(.01, #000), color-stop(.02, #555), color-stop(.03, #2d2d2d), color-stop(.5, #151515), color-stop(.51, #000))
+	padding 1em
+
+div.search input[type=text] 
+	borderRadius(0.315em)
+	border 1px inset #ccc
+	font-size 1.4em
+
+// form related styles
+
+fieldset, div.record 
+	font-size 1.2em
+
+fieldset li 
+	padding 0.8em
+	margin-bottom 0.8em
+	border-bottom 1px solid #eee
+	overflow hidden
+	text-overflow ellipsis
+	white-space nowrap
+	display block 
+
+fieldset li b 
+	margin-bottom 0.515em
+	font-size 0.915em
+ 
+fieldset li input, fieldset li select, fieldset li textarea 
+	display block
+	width 100%
+	padding 0.315em 0
+	text-indent 0.315em
+	borderRadius(0.315em)
+	font-size 1.115em
+	-webkit-box-shadow  inset 0 1px 4px rgba(0,0,0,.2)
+	box-shadow  inset 0 1px 4px rgba(0,0,0,.2)
+	border  1px solid #B3B3B3
+	color  #333
+	text-shadow  0 1px 0 white
+
+a.button.green 
+	display block
+	margin 0.8em
+	padding 0.3em 0 0.6em 0
+	font-family "Helvetica Neue", Helvetica, sans-serif
+	font-size 1.5em
+	font-weight bold
+	text-align center
+	border 3px solid #888
+	color #fff
+	gradientV(#093, #363)
+	text-shadow 0px 1px 0 #090
+	-webkit-background-origin padding-box
+	-webkit-background-clip border-box
+	-webkit-border-radius 8px
+
+div.record ul li
+	padding 20px
+	border-bottom 1px solid #eee
+
+div.record ul li b 
+	font-size 0.875em
+	display block
+	color #555
+	overflow hidden
+	text-overflow ellipsis
+	white-space nowrap
+	margin-bottom 0.4em
+	
